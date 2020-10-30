@@ -18,8 +18,6 @@
 >   * [Table of contents](#table-of-contents)
 >   * [Setup](#setup)
 >   * [Usage](#usage)
->     * [Screenshots](#screenshots)
->     * [Features](#features)
 >   * [Code](#code)
 >     * [Bugs](#bugs)
 >     * [To Do](#to-do)
@@ -31,7 +29,7 @@
 ## Setup
 
 * Clone the project from the repository at https://github.com/jbnilles/Parks
-* Navigate to the project file and then into the folder `Factory`
+* Navigate to the project file and then into the folder `Park`
 * Create a file called `appsettings.json`
 * In the `appsettings.json` file add the following
 ```json
@@ -49,6 +47,7 @@
 ```
 * Replace `YOUR_PASSWORD` with you MySQL password
 * Open a terminal and navigate to the `Park` folder inside the project 
+* In the terminal run `dotnet restore`
 * In the terminal run `dotnet ef database update`
 * In the terminal run `dotnet run`
 * Open a web browser and go to http://localhost:5000/ 
@@ -58,11 +57,11 @@
 
 ## Usage
 
-#### Endpoints
+### Endpoints
 
 Base URL: `http://localhost:5000`
 
-#### HTTP Request
+### HTTP Request
 
 ```
 GET /api/parks
@@ -74,9 +73,9 @@ GET /api/parks/search
 Get /api/parks/random
 ```
 
-#### Path Parameters
+### Path Parameters
 
-# GET /api/parks/search
+### GET /api/parks/search
 | Parameter |  Type  | Default | Required | Description                      |
 | :-------: | :----: | :-----: | :------: | -------------------------------- |
 |  state    | string |  none   |  false   | Return matches by State. |
@@ -85,29 +84,28 @@ Get /api/parks/random
 |  pageSize   |  int   |  none   |  false   | determines how many records to show per page.  |
 |  pageNumber   |  int   |  none   |  false   | determines which page of results  |
 
-# GET /api/parks, POST /api/parks
+### GET /api/parks, POST /api/parks
 | Parameter |  Type  | Default | Required | Description                      |
 | :-------: | :----: | :-----: | :------: | -------------------------------- |
 |  pageSize   |  int   |  none   |  false   | determines how many records to show per page.  |
 |  pageNumber   |  int   |  none   |  false   | determines which page of results  |
 
-# GET /api/parks/{id}, PUT /api/parks/{id}, DELETE /api/parks/{id}
+### GET /api/parks/{id}, PUT /api/parks/{id}, DELETE /api/parks/{id}
 | Parameter |  Type  | Default | Required | Description                      |
 | :-------: | :----: | :-----: | :------: | -------------------------------- |
 |  id   |  int   |  none   |  false   | id of park  |
-|  pageSize   |  int   |  none   |  false   | determines how many records to show per page.  |
-|  pageNumber   |  int   |  none   |  false   | determines which page of results  |
 
-# Get /api/parks/random
+
+### Get /api/parks/random
 | Parameter |  Type  | Default | Required | Description                      |
 | :-------: | :----: | :-----: | :------: | -------------------------------- |
 
-#### Example Query
+### Example Query
 
 ```
 http://localhost:5000/api/parks/
 ```
-#### Sample JSON Response
+### Sample JSON Response
 
 ```
 {
@@ -168,13 +166,13 @@ http://localhost:5000/api/parks/
 }
 }
 ```
-#### Example Query
+### Example Query
 
 ```
 http://localhost:5000/api/parks?city=poulsbo&pagesize=1&pagenumber=1
 ```
 
-#### Sample JSON Response
+### Sample JSON Response
 
 ```
 {
@@ -201,11 +199,16 @@ http://localhost:5000/api/parks?city=poulsbo&pagesize=1&pagenumber=1
     "message": null
 }
 ```
+### Swagger
+To view swagger for additional info go to http://localhost:5000/swagger/index.html with the API running
+
 
 ### Features
 * Add/Edit/Delete/View Parks
 * Get a random park
 * Search parks by name, city, state or type
+* Swagger documentation
+* Pagination
 
 ## Code
 
