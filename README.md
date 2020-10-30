@@ -48,6 +48,7 @@
 * Replace `YOUR_PASSWORD` with you MySQL password
 * Open a terminal and navigate to the `Parks` folder inside the project 
 * In the terminal run `dotnet restore`
+* In the terminal run `dotnet ef migrations add initial`
 * In the terminal run `dotnet ef database update`
 * In the terminal run `dotnet run`
 * Open a web browser and go to http://localhost:5000/ 
