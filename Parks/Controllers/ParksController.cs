@@ -75,6 +75,14 @@ namespace Parks.Controllers
             _db.Parks.Remove(parkToDelete);
             _db.SaveChanges();
         }
+        [HttpGet("random")]
+        public ActionResult<Park> Get()
+        {
+        int count = _db.Parks.Count();
+        int index = new Random().Next(count);
+
+        return Ok(new Response<Park>(_db.Parks.Skip(index).FirstOrDefault()));
+        }
 
     }
 }
