@@ -9,7 +9,6 @@ namespace Parks.Models
   {
     public class FactoryContextFactory : IDesignTimeDbContextFactory<ParksContext>
     {
-
       ParksContext IDesignTimeDbContextFactory<ParksContext>.CreateDbContext(string[] args)
       {
         IConfigurationRoot configuration = new ConfigurationBuilder()

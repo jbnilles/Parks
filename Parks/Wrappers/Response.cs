@@ -4,6 +4,7 @@ namespace Parks.Wrappers
   {
     public Response()
     {
+      
     }
     public Response(T data)
     {

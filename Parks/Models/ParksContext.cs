@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Parks.Models
 {
@@ -16,8 +15,6 @@ namespace Parks.Models
     }
 
     public DbSet<Park> Parks { get; set; }
-    
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
       builder.Entity<Park>()

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Parks.Models;
@@ -8,7 +7,6 @@ using Parks.Filter;
 using Parks.Wrappers;
 using Microsoft.EntityFrameworkCore;
 using System;
-using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 namespace Parks.Controllers
 {
@@ -23,25 +21,26 @@ namespace Parks.Controllers
             _db = db;
             this.uriService = uriService;
         }
-        // GET api/parks
+
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
         {
             var route = Request.Path.Value;
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
             var query = _db.Parks.AsQueryable();
-            
             query = query.Skip((validFilter.PageNumber - 1) * validFilter.PageSize).Take(validFilter.PageSize);
             var totalRecords = await _db.Parks.CountAsync();
             var pagedResponse = PaginationHelper.CreatePagedReponse<Park>(query.ToList(), validFilter, totalRecords, uriService, route);
             return Ok(pagedResponse);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var park = await _db.Parks.Where(a => a.ParkId == id).FirstOrDefaultAsync();
             return Ok(new Response<Park>(park));
         }
+
         [HttpPost]
         public void Post([FromBody] Park park)
         {
@@ -49,6 +48,7 @@ namespace Parks.Controllers
             _db.Parks.Add(park);
             _db.SaveChanges();
         }
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Park park)
         {
@@ -56,6 +56,7 @@ namespace Parks.Controllers
             _db.Entry(park).State = EntityState.Modified;
             _db.SaveChanges();
         }
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
@@ -63,14 +64,15 @@ namespace Parks.Controllers
             _db.Parks.Remove(parkToDelete);
             _db.SaveChanges();
         }
+
         [HttpGet("random")]
         public ActionResult<Park> Get()
         {
-        int count = _db.Parks.Count();
-        int index = new Random().Next(count);
-
-        return Ok(new Response<Park>(_db.Parks.Skip(index).FirstOrDefault()));
+            int count = _db.Parks.Count();
+            int index = new Random().Next(count);
+            return Ok(new Response<Park>(_db.Parks.Skip(index).FirstOrDefault()));
         }
+
         [HttpGet("search")]
         public async Task<IActionResult> Search([FromQuery] PaginationFilter filter, string city, string state, string name)
         {
@@ -90,11 +92,9 @@ namespace Parks.Controllers
                 query = query.Where(entry => entry.Name == name);
             }
             query = query.Skip((validFilter.PageNumber - 1) * validFilter.PageSize).Take(validFilter.PageSize);
-            // .ToListAsync();
             var totalRecords = await _db.Parks.CountAsync();
             var pagedResponse = PaginationHelper.CreatePagedReponse<Park>(query.ToList(), validFilter, totalRecords, uriService, route);
             return Ok(pagedResponse);
         }
-
     }
 }
