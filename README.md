@@ -29,7 +29,7 @@
 ## Setup
 
 * Clone the project from the repository at https://github.com/jbnilles/Parks
-* Navigate to the project file and then into the folder `Park`
+* Navigate to the project file and then into the folder `Parks`
 * Create a file called `appsettings.json`
 * In the `appsettings.json` file add the following
 ```json
@@ -46,7 +46,7 @@
 }
 ```
 * Replace `YOUR_PASSWORD` with you MySQL password
-* Open a terminal and navigate to the `Park` folder inside the project 
+* Open a terminal and navigate to the `Parks` folder inside the project 
 * In the terminal run `dotnet restore`
 * In the terminal run `dotnet ef database update`
 * In the terminal run `dotnet run`
