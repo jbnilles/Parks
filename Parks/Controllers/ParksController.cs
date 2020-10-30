@@ -5,6 +5,7 @@ using Parks.Models;
 using Parks.Services;
 using Parks.Helpers;
 using Parks.Filter;
+using Parks.Wrappers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Authorization;
@@ -63,6 +64,13 @@ namespace Parks.Controllers
         {
             park.ParkId = id;
             _db.Entry(park).State = EntityState.Modified;
+            _db.SaveChanges();
+        }
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+            _db.Parks.Remove(parkToDelete);
             _db.SaveChanges();
         }
 

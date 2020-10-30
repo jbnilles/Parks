@@ -1,0 +1,6 @@
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.csprojAssemblyReference.cache
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.AssemblyInfoInputs.cache
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.AssemblyInfo.cs
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.csproj.CoreCompileInputs.cache
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.RazorAssemblyInfo.cache
+C:\Users\bnilles\Desktop\epi\Parks.Solution\Parks\obj\Debug\netcoreapp2.2\Parks.Solution.RazorAssemblyInfo.cs

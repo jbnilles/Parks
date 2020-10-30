@@ -15,7 +15,7 @@ namespace Parks.Models
 
     }
 
-    public DbSet<Park> Park { get; set; }
+    public DbSet<Park> Parks { get; set; }
     
 
     protected override void OnModelCreating(ModelBuilder builder)
