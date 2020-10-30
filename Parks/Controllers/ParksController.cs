@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 namespace Parks.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ParksController : ControllerBase
     {
         private ParksContext _db;
