@@ -25,25 +25,13 @@ namespace Parks.Controllers
         }
         // GET api/parks
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter, string city, string state, string name)
+        public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
         {
             var route = Request.Path.Value;
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
             var query = _db.Parks.AsQueryable();
-            if (city != null)
-            {
-                query = query.Where(entry => entry.City == city); 
-            }
-            if (state != null)
-            {
-                query = query.Where(entry => entry.State == state);
-            }
-            if (name != null)
-            {
-                query = query.Where(entry => entry.Name == name);
-            }
+            
             query = query.Skip((validFilter.PageNumber - 1) * validFilter.PageSize).Take(validFilter.PageSize);
-            // .ToListAsync();
             var totalRecords = await _db.Parks.CountAsync();
             var pagedResponse = PaginationHelper.CreatePagedReponse<Park>(query.ToList(), validFilter, totalRecords, uriService, route);
             return Ok(pagedResponse);
@@ -82,6 +70,30 @@ namespace Parks.Controllers
         int index = new Random().Next(count);
 
         return Ok(new Response<Park>(_db.Parks.Skip(index).FirstOrDefault()));
+        }
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromQuery] PaginationFilter filter, string city, string state, string name)
+        {
+            var route = Request.Path.Value;
+            var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+            var query = _db.Parks.AsQueryable();
+            if (city != null)
+            {
+                query = query.Where(entry => entry.City == city); 
+            }
+            if (state != null)
+            {
+                query = query.Where(entry => entry.State == state);
+            }
+            if (name != null)
+            {
+                query = query.Where(entry => entry.Name == name);
+            }
+            query = query.Skip((validFilter.PageNumber - 1) * validFilter.PageSize).Take(validFilter.PageSize);
+            // .ToListAsync();
+            var totalRecords = await _db.Parks.CountAsync();
+            var pagedResponse = PaginationHelper.CreatePagedReponse<Park>(query.ToList(), validFilter, totalRecords, uriService, route);
+            return Ok(pagedResponse);
         }
 
     }

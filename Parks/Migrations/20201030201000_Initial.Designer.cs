@@ -8,8 +8,8 @@ using Parks.Models;
 namespace Parks.Solution.Migrations
 {
     [DbContext(typeof(ParksContext))]
-    [Migration("20201030172639_initial")]
-    partial class initial
+    [Migration("20201030201000_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,13 @@ namespace Parks.Solution.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<bool>("IsStatePark");
-
                     b.Property<string>("Name")
                         .IsRequired();
 
                     b.Property<string>("State")
+                        .IsRequired();
+
+                    b.Property<string>("TypeOfPark")
                         .IsRequired();
 
                     b.HasKey("ParkId");
@@ -46,45 +47,45 @@ namespace Parks.Solution.Migrations
                             ParkId = -1,
                             City = "Pouslbo",
                             Description = "Kitsap Memorial State Park is a 63-acre public recreation area located on Hood Canal, seven miles north of Poulsbo in Kitsap County, Washington.",
-                            IsStatePark = true,
                             Name = "Kitsap Memorial State Park",
-                            State = "WA"
+                            State = "WA",
+                            TypeOfPark = "State"
                         },
                         new
                         {
                             ParkId = -2,
                             City = "Brinnon",
                             Description = "Dosewallips State Park is a public recreation area located where the Dosewallips River empties into Hood Canal in Jefferson County, Washington.",
-                            IsStatePark = true,
                             Name = "Dosewallips State Park",
-                            State = "WA"
+                            State = "WA",
+                            TypeOfPark = "State"
                         },
                         new
                         {
                             ParkId = -3,
                             City = "Port Angeles",
                             Description = "Olympic National Park is on Washington's Olympic Peninsula in the Pacific Northwest. The park sprawls across several different ecosystems, from the dramatic peaks of the Olympic Mountains to old-growth forests.",
-                            IsStatePark = false,
                             Name = "Olympic National Park",
-                            State = "WA"
+                            State = "WA",
+                            TypeOfPark = "National"
                         },
                         new
                         {
                             ParkId = -4,
                             City = "Lake Chelan",
                             Description = "North Cascades National Park is in northern Washington State. It’s a vast wilderness of conifer-clad mountains, glaciers and lakes.",
-                            IsStatePark = false,
                             Name = "North Cascades National Park",
-                            State = "WA"
+                            State = "WA",
+                            TypeOfPark = "National"
                         },
                         new
                         {
                             ParkId = -5,
                             City = "Mount Rainier",
                             Description = "Mount Rainier National Park, a 369-sq.-mile Washington state reserve southeast of Seattle, surrounds glacier-capped, 14,410-ft. Mount Rainier.",
-                            IsStatePark = false,
                             Name = "Mount Rainier National Park",
-                            State = "WA"
+                            State = "WA",
+                            TypeOfPark = "National"
                         });
                 });
 #pragma warning restore 612, 618

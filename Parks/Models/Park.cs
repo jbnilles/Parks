@@ -8,7 +8,7 @@ namespace Parks.Models
     [Required]
     public int ParkId { get; set; }
     [Required]
-    public bool IsStatePark { get; set; }
+    public string TypeOfPark { get; set; }
     
     [Required]
     public string City { get; set; }
