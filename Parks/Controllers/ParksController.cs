@@ -79,6 +79,7 @@ namespace Parks.Controllers
             var route = Request.Path.Value;
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
             var query = _db.Parks.AsQueryable();
+            
             if (city != null)
             {
                 query = query.Where(entry => entry.City == city); 
@@ -91,9 +92,12 @@ namespace Parks.Controllers
             {
                 query = query.Where(entry => entry.Name == name);
             }
+
             query = query.Skip((validFilter.PageNumber - 1) * validFilter.PageSize).Take(validFilter.PageSize);
+
             var totalRecords = await _db.Parks.CountAsync();
             var pagedResponse = PaginationHelper.CreatePagedReponse<Park>(query.ToList(), validFilter, totalRecords, uriService, route);
+            
             return Ok(pagedResponse);
         }
     }

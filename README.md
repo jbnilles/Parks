@@ -228,7 +228,7 @@ To view swagger for additional info go to http://localhost:5000/swagger/index.ht
 
 ## Resources (Documentation and other links)
 
-
+https://swagger.io/tools/swagger-codegen/ Swagger documentation for API
 
 
 ## Contact

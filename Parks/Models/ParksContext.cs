@@ -25,7 +25,6 @@ namespace Parks.Models
               new Park { ParkId = -4, TypeOfPark = "National",  City = "Lake Chelan", State = "WA",  Name = "North Cascades National Park", Description = "North Cascades National Park is in northern Washington State. It’s a vast wilderness of conifer-clad mountains, glaciers and lakes." },
               new Park { ParkId = -5, TypeOfPark = "National",  City = "Mount Rainier", State = "WA",  Name = "Mount Rainier National Park", Description = "Mount Rainier National Park, a 369-sq.-mile Washington state reserve southeast of Seattle, surrounds glacier-capped, 14,410-ft. Mount Rainier." }
           );
-      
     }
   }
 }
