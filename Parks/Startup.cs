@@ -34,6 +34,7 @@ namespace Parks
             services.AddDbContext<ParksContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSwaggerGen();
 
 
 
@@ -62,7 +63,11 @@ namespace Parks
                 app.UseHsts();
             }
 
-            
+             app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseMvc();
         }
     }
