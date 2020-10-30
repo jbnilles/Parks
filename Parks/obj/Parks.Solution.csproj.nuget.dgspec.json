@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\Parks.Solution.csproj": {}
+    "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\parks\\Parks.Solution.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\Parks.Solution.csproj": {
+    "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\parks\\Parks.Solution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\Parks.Solution.csproj",
+        "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\parks\\Parks.Solution.csproj",
         "projectName": "Parks.Solution",
-        "projectPath": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\Parks.Solution.csproj",
+        "projectPath": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\parks\\Parks.Solution.csproj",
         "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\obj\\",
+        "outputPath": "C:\\Users\\bnilles\\Desktop\\epi\\Parks.Solution\\parks\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
